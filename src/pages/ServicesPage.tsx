@@ -2,11 +2,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Speaker, Music, Mic2, Sparkles, ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
+import { useRef } from "react";
 export function ServicesPage() {
     const { isDark } = useTheme();
-    const { scrollYProgress } = useScroll();
-    const heroY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
-    const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+    const heroRef = useRef<HTMLElement | null>(null);
+    const { scrollYProgress } = useScroll({
+        target: heroRef,
+        offset: ["start start", "end start"],
+    });
+    const heroY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+    const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
     const services = [
         {
             icon: <Speaker className="w-8 h-8" />,
@@ -58,13 +63,16 @@ export function ServicesPage() {
     return (
         <div className="relative">
             {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+            <section
+                ref={heroRef}
+                className="relative min-h-[90svh] flex items-center justify-center overflow-hidden"
+            >
                 {/* Parallax Background */}
                 <motion.div
                     style={{
-                        y: heroY,
+                        y: 0,
                     }}
-                    className="absolute inset-0 z-0"
+                    className="absolute inset-0 z-0 md:[transform:translateY(var(--y))]"
                 >
                     <div
                         className={`absolute inset-0 z-10 ${isDark ? "bg-gradient-to-b from-[#0a0a0f]/70 via-[#0a0a0f]/85 to-[#0a0a0f]" : "bg-gradient-to-b from-white/70 via-white/85 to-[#f8fafc]"}`}
@@ -84,7 +92,7 @@ export function ServicesPage() {
                                     repeat: Infinity,
                                     ease: "easeInOut",
                                 }}
-                                className="absolute -top-20 left-1/4 w-40 h-[120vh] bg-gradient-to-b from-blue-500/40 via-blue-500/10 to-transparent origin-top blur-2xl"
+                                className="absolute -top-20 left-1/4 w-40 h-[120svh] bg-gradient-to-b from-blue-500/40 via-blue-500/10 to-transparent origin-top blur-2xl"
                                 style={{
                                     transformOrigin: "top center",
                                 }}
@@ -102,7 +110,7 @@ export function ServicesPage() {
                                     ease: "easeInOut",
                                     delay: 1,
                                 }}
-                                className="absolute -top-20 right-1/4 w-40 h-[120vh] bg-gradient-to-b from-purple-500/40 via-purple-500/10 to-transparent origin-top blur-2xl"
+                                className="absolute -top-20 right-1/4 w-40 h-[120svh] bg-gradient-to-b from-purple-500/40 via-purple-500/10 to-transparent origin-top blur-2xl"
                                 style={{
                                     transformOrigin: "top center",
                                 }}
@@ -120,7 +128,7 @@ export function ServicesPage() {
                                     ease: "easeInOut",
                                     delay: 2,
                                 }}
-                                className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-[120vh] bg-gradient-to-b from-pink-500/30 via-pink-500/5 to-transparent origin-top blur-3xl"
+                                className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-[120svh] bg-gradient-to-b from-pink-500/30 via-pink-500/5 to-transparent origin-top blur-3xl"
                             />
                         </>
                     )}
