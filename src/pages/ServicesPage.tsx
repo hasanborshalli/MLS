@@ -70,12 +70,6 @@ export function ServicesPage() {
                         className={`absolute inset-0 z-10 ${isDark ? "bg-gradient-to-b from-[#0a0a0f]/70 via-[#0a0a0f]/85 to-[#0a0a0f]" : "bg-gradient-to-b from-white/70 via-white/85 to-[#f8fafc]"}`}
                     />
 
-                    <img
-                        src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop"
-                        alt="Concert Stage"
-                        className={`w-full h-full object-cover ${isDark ? "opacity-60" : "opacity-40"}`}
-                    />
-
                     {/* Animated Light Beams - Spotlights */}
                     {isDark && (
                         <>
