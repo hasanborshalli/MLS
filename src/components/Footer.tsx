@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, Facebook, Instagram, Music } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
+import { FaTiktok } from "react-icons/fa";
+
 export function Footer() {
     const { isDark } = useTheme();
     const containerVariants = {
@@ -83,16 +85,18 @@ export function Footer() {
                                 <Phone className="w-5 h-5 text-blue-500" />
                                 <div className="flex flex-col">
                                     <a
+                                        target="_blank"
                                         href="tel:71142212"
                                         className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-gray-900"}`}
                                     >
-                                        71 142 212
+                                        71 14 22 12
                                     </a>
                                     <a
+                                        target="_blank"
                                         href="tel:76982598"
                                         className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-gray-900"}`}
                                     >
-                                        76 982 598
+                                        76 98 25 98
                                     </a>
                                 </div>
                             </div>
@@ -124,8 +128,14 @@ export function Footer() {
                                     color: "hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600",
                                     href: "https://www.instagram.com/mghamesforlightingandsound2024?igsh=Y2F6ZGU2cHh6MDU1",
                                 },
+                                {
+                                    icon: FaTiktok,
+                                    color: "hover:bg-black",
+                                    href: "https://www.tiktok.com/@mghamesforlightingsound",
+                                },
                             ].map((social, index) => (
                                 <motion.a
+                                    target="_blank"
                                     key={index}
                                     href={social.href}
                                     whileHover={{

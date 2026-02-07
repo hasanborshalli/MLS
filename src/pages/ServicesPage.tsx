@@ -65,14 +65,12 @@ export function ServicesPage() {
             {/* Hero Section */}
             <section
                 ref={heroRef}
-                className="relative min-h-[90svh] flex items-center justify-center overflow-hidden"
+                className="relative min-h-[90svh] flex items-center justify-center overflow-hidden [contain:paint] [transform:translateZ(0)]"
             >
                 {/* Parallax Background */}
                 <motion.div
-                    style={{
-                        y: 0,
-                    }}
-                    className="absolute inset-0 z-0 md:[transform:translateY(var(--y))]"
+                    style={{ y: heroY, willChange: "transform" }}
+                    className="absolute inset-0 z-0 [transform:translateZ(0)] [contain:paint]"
                 >
                     <div
                         className={`absolute inset-0 z-10 ${isDark ? "bg-gradient-to-b from-[#0a0a0f]/70 via-[#0a0a0f]/85 to-[#0a0a0f]" : "bg-gradient-to-b from-white/70 via-white/85 to-[#f8fafc]"}`}
@@ -92,9 +90,12 @@ export function ServicesPage() {
                                     repeat: Infinity,
                                     ease: "easeInOut",
                                 }}
-                                className="absolute -top-20 left-1/4 w-40 h-[120svh] bg-gradient-to-b from-blue-500/40 via-blue-500/10 to-transparent origin-top blur-2xl"
+                                className="absolute -top-20 left-1/4 w-40 h-[120svh] bg-gradient-to-b from-blue-500/40 via-blue-500/10 to-transparent origin-top blur-none md:blur-2xl pointer-events-none"
                                 style={{
                                     transformOrigin: "top center",
+                                    willChange: "transform, opacity",
+                                    backfaceVisibility: "hidden",
+                                    transform: "translateZ(0)",
                                 }}
                             />
 
@@ -110,9 +111,12 @@ export function ServicesPage() {
                                     ease: "easeInOut",
                                     delay: 1,
                                 }}
-                                className="absolute -top-20 right-1/4 w-40 h-[120svh] bg-gradient-to-b from-purple-500/40 via-purple-500/10 to-transparent origin-top blur-2xl"
+                                className="absolute -top-20 right-1/4 w-40 h-[120svh] bg-gradient-to-b from-purple-500/40 via-purple-500/10 to-transparent origin-top blur-none md:blur-2xl pointer-events-none"
                                 style={{
                                     transformOrigin: "top center",
+                                    willChange: "transform, opacity",
+                                    backfaceVisibility: "hidden",
+                                    transform: "translateZ(0)",
                                 }}
                             />
 
@@ -128,7 +132,12 @@ export function ServicesPage() {
                                     ease: "easeInOut",
                                     delay: 2,
                                 }}
-                                className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-[120svh] bg-gradient-to-b from-pink-500/30 via-pink-500/5 to-transparent origin-top blur-3xl"
+                                className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-[120svh] bg-gradient-to-b from-pink-500/30 via-pink-500/5 to-transparent origin-top blur-none md:blur-3xl pointer-events-none"
+                                style={{
+                                    willChange: "transform, opacity",
+                                    backfaceVisibility: "hidden",
+                                    transform: "translateZ(0)",
+                                }}
                             />
                         </>
                     )}

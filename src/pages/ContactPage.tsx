@@ -142,9 +142,10 @@ export function ContactPage() {
                                     </p>
 
                                     <div className="flex flex-col gap-2">
-                                        {["71 142 212", "76 982 598"].map(
+                                        {["71 14 22 12", "76 98 25 98"].map(
                                             (phone) => (
                                                 <motion.a
+                                                    target="_blank"
                                                     key={phone}
                                                     href={`tel:${phone.replace(/\s/g, "")}`}
                                                     whileHover={{
