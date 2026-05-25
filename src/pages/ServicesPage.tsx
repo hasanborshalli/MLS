@@ -58,6 +58,16 @@ export function ServicesPage() {
             title: "Indoor Productions",
             desc: "Immersive lighting and sound for arena-style shows",
         },
+        {
+            url: "/equipment.png",
+            title: "Premium Equipment",
+            desc: "State-of-the-art sound and lighting gear for every setup",
+        },
+        {
+            url: "/book.jpg",
+            title: "Book Your Event",
+            desc: "Let us handle every detail so you can enjoy the moment",
+        },
     ];
 
     return (
