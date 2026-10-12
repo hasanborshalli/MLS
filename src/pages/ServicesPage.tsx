@@ -445,6 +445,34 @@ export function ServicesPage() {
                 </div>
             </section>
 
+            {/* MLS Photo Section */}
+            <section className="pb-16 md:pb-24 px-4 relative z-10">
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        y: 30,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    viewport={{
+                        once: true,
+                    }}
+                    transition={{
+                        duration: 0.6,
+                    }}
+                    className={`max-w-7xl mx-auto overflow-hidden rounded-xl md:rounded-2xl shadow-2xl ${isDark ? "border border-white/10" : "border border-gray-200"}`}
+                >
+                    <img
+                        src="/mls-photo.png"
+                        alt="MLS Sound & Lighting"
+                        loading="lazy"
+                        className="block w-full h-auto"
+                    />
+                </motion.div>
+            </section>
+
             {/* Photo Showcase Section */}
             <section
                 className={`py-24 relative ${isDark ? "bg-[#050508]" : "bg-gray-50"}`}
