@@ -49,5 +49,36 @@
     <body>
         <div id="root"></div>
         <script type="module" src="/src/index.tsx"></script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "MLS Sound & Lighting",
+                "url": "https://mlslightandsound.com/",
+                "description": "Professional sound systems, lighting design, DJ services and event production.",
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Event Production Services",
+                    "itemListElement": [
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Sound Systems"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Lighting Design"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "DJ Services"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Event Production"
+                        }
+                    ]
+                }
+            }
+        </script>
     </body>
 </html>
